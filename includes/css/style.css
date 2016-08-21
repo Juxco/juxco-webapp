@@ -1,13 +1,15 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+  background: url("../images/splash.jpg") no-repeat center fixed;
+  background-size: cover;
 }
 
-.form-signin {
+.form-signin, footer {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+  background: #eee;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
