@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"] . '/includes/php/init.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/php/init.php';
 
 $isLoggedIn = check_login_state();
 if ($isLoggedIn !== 0) {
