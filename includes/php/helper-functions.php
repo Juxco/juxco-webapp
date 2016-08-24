@@ -7,8 +7,16 @@ function check_login_state() {
 		return 1;
 	}
 }
-function header_redirect($url, $statusCode = 303) {
-	header('Location: ' . $url, true, $statusCode);
+
+// http://stackoverflow.com/a/768472
+function header_redirect($pageName, $statusCode = 303) {
+	header('Location: ' . FULLY_QUALIFIED_URL . $pageName, true, $statusCode);
 	die();
+}
+
+function create_view($viewName) {
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/header.html';
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/' . $viewName . '.html';
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/footer.html';
 }
 ?>
