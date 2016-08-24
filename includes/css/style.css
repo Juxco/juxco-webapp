@@ -1,4 +1,4 @@
-#indexLoginFormWrapper,
+#loginFormWrapper,
 #registerFormWrapper {
   background: #eee;
   max-width: 720px;
@@ -7,12 +7,12 @@
   padding: 40px;
 }
 
-#indexLoginFormWrapper h1,
+#loginFormWrapper h1,
 #registerFormWrapper h1 {
   margin-top: 0px;
 }
 
-#indexSignInButton,
+#signInButton,
 #registerButton {
   margin-right: 10px;
 }
