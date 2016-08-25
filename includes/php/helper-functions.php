@@ -19,4 +19,14 @@ function create_view($viewName) {
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/' . $viewName . '.html';
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/footer.html';
 }
+
+// Returns 0 if a form successfully submitted using method post, 1 if otherwise
+// The post method is validated further by the submit button name attribute
+function check_form_post($submitButton) {
+	if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST[$submitButton])) {
+		return 0;
+	} else {
+		return 1;
+	}
+}
 ?>
