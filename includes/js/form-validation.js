@@ -62,9 +62,13 @@ function validateRegisterEmail(registerEmailValue) {
 	return true;
 }
 
-// Validates username being only 4-22 characters and containing only a-z
+// Validates username being only 4-24 characters and containing only a-z
 function validateRegisterUsername(registerUsernameValue) {
 	if (registerUsernameValue.length < 4 || registerUsernameValue.length > 24) {
+		return false;
+	}
+
+	if (!/^([a-z]{4,24})$/.test(registerUsernameValue)) {
 		return false;
 	}
 
