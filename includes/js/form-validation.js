@@ -4,6 +4,7 @@ function validateRegisterForm(registerForm) {
 	isValid += validateRegisterField(registerForm, "registerEmail", "registerEmailFormGroup");
 	isValid += validateRegisterField(registerForm, "registerUsername", "registerUsernameFormGroup");
 	isValid += validateRegisterField(registerForm, "registerPassword", "registerPasswordFormGroup");
+	isValid += validateRegisterField(registerForm, "registerRoleType", "registerRoleTypeFormGroup");
 
 	if (isValid === 0) {
 		return true;
@@ -26,6 +27,9 @@ function validateRegisterField(registerForm, registerFieldId, registerFormGroupI
 			break;
 		case "registerPassword":
 			isValid = validateRegisterPassword(registerFieldValue);
+			break;
+		case "registerRoleType":
+			isValid = validateRegisterRoleType(registerFieldValue);
 			break;
 		default:
 			isValid = false;
@@ -92,6 +96,15 @@ function validateRegisterPassword(registerPasswordValue) {
 	return true;
 }
 
+// Validates that a role is selected
+function validateRegisterRoleType(registerRoleTypeValue) {
+	if (isEmptyValue(registerRoleTypeValue)) {
+		return false;
+	}
+
+	return true;
+}
+
 function displayRegistrationError(formGroupId) {
 	var errorId = formGroupId + "Error";
 	var errorIdElement = document.getElementById(errorId);
@@ -114,6 +127,9 @@ function displayRegistrationError(formGroupId) {
 				break;
 			case "registerPasswordFormGroup":
 				errorString = "Password must be at least 6 characters long.";
+				break;
+			case "registerRoleTypeFormGroup":
+				errorString = "A role must be selected.";
 				break;
 			default:
 				errorString = "Invalid input";
