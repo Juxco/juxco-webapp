@@ -11,13 +11,14 @@ if (check_form_post('registerSubmit') === 0) {
 	}
 
 	// prepare sql statement
-	$stmt = $conn->prepare('INSERT INTO ' . TABLE_USER_ACCOUNTS  . '(email, username, password) VALUES (?, ?, ?)');
-	$stmt->bind_param('sss', $registerEmail, $registerUsername, $registerPassword);
+	$stmt = $conn->prepare('INSERT INTO ' . TABLE_USER_ACCOUNTS  . '(email, username, password, role_type) VALUES (?, ?, ?, ?)');
+	$stmt->bind_param('ssss', $registerEmail, $registerUsername, $registerPassword, $registerRoleType);
 
 	// set params and  execute sql statement
 	$registerEmail = $_POST['registerEmail'];
 	$registerUsername = $_POST['registerUsername'];
 	$registerPassword = $_POST['registerPassword'];
+	$registerRoleType = $_POST['registerRoleType'];
 	$stmt->execute();
 
 	// check execution of sql statement
@@ -29,6 +30,7 @@ if (check_form_post('registerSubmit') === 0) {
 	// check database for new record just added
 
 	// redirect
+	header_redirect('index.php');
 }
 
 if (check_login_state() === 0) {
