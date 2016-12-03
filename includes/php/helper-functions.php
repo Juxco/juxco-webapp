@@ -8,16 +8,39 @@ function check_login_state() {
 	}
 }
 
+// Returns role type of the user for the current session, null if not set
+function check_role_type() {
+	if (isset($_SESSION['ROLE_TYPE'])) {
+		return $_SESSION['ROLE_TYPE'];
+	} else {
+		return null;
+	}
+}
+
+// If the login state is 0, changes to 1, and vice versa. If unset, sets the state to 0
+function invert_login_state() {
+	if (isset($_SESSION['USER_LOGIN_STATE'])) {
+		if ($_SESSION['USER_LOGIN_STATE'] === 0) {
+			$_SESSION['USER_LOGIN_STATE'] = 1;
+		} else {
+			$_SESSION['USER_LOGIN_STATE'] = 0;
+		}
+	} else {
+		$_SESSION['USER_LOGIN_STATE'] = 0;
+	}
+}
+
 // http://stackoverflow.com/a/768472
 function header_redirect($pageName, $statusCode = 303) {
 	header('Location: ' . FULLY_QUALIFIED_URL . $pageName, true, $statusCode);
 	die();
 }
 
+// Instantiates a new view onto the screen as specified by the passed argument
 function create_view($viewName) {
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/header.html';
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/' . $viewName . '.html';
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/footer.html';
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/views/header.html';
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/views/' . $viewName . '.html';
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/views/footer.html';
 }
 
 // Returns 0 if a form successfully submitted using method post, 1 if otherwise
