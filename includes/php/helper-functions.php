@@ -15,9 +15,9 @@ function header_redirect($pageName, $statusCode = 303) {
 }
 
 function create_view($viewName) {
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/header.html';
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/' . $viewName . '.html';
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/html/footer.html';
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/views/header.html';
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/views/' . $viewName . '.html';
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/views/footer.html';
 }
 
 // Returns 0 if a form successfully submitted using method post, 1 if otherwise
