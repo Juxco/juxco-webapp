@@ -5,9 +5,9 @@ if (check_login_state() === 1) {
 	header_redirect('login');
 }
 
-$role = check_role_type();
+$roleType = get_role_type();
 
-switch ($role) {
+switch ($roleType) {
 	case 'busboy':
 		header_redirect('busboy');
 		break;
@@ -16,6 +16,5 @@ switch ($role) {
 		break;
 	default:
 		create_view('index');
-		exit();
 }
 ?>
