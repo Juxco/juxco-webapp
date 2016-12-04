@@ -27,5 +27,5 @@ if (check_login_state() === 0) {
 	header_redirect('index.php');
 }
 
-create_view("register");
+create_view('register');
 ?>
