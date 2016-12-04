@@ -8,8 +8,17 @@ function check_login_state() {
 	}
 }
 
+// Returns 0 if on the correct page, 1 if otherwise
+function check_correct_page($pageName) {
+	if ($pageName === get_role_type()) {
+		return 0;
+	} else {
+		return 1;
+	}
+}
+
 // Returns role type of the user for the current session, null if not set
-function check_role_type() {
+function get_role_type() {
 	if (isset($_SESSION['ROLE_TYPE'])) {
 		return $_SESSION['ROLE_TYPE'];
 	} else {
