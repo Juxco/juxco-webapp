@@ -32,7 +32,7 @@ function invert_login_state() {
 
 // http://stackoverflow.com/a/768472
 function header_redirect($pageName, $statusCode = 303) {
-	header('Location: ' . FULLY_QUALIFIED_URL . $pageName, true, $statusCode);
+	header('Location: ' . FULLY_QUALIFIED_URL . $pageName . '.php', true, $statusCode);
 	die();
 }
 

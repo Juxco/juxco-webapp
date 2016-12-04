@@ -29,7 +29,7 @@ if (check_form_post('loginSubmit') === 0) {
 }
 
 if (check_login_state() === 0) {
-	header_redirect('index.php');
+	header_redirect('index');
 }
 
 create_view('login');

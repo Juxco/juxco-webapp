@@ -20,11 +20,11 @@ if (check_form_post('registerSubmit') === 0) {
 	$stmt->close();
 	$conn->close();
 
-	header_redirect('index.php');
+	header_redirect('index');
 }
 
 if (check_login_state() === 0) {
-	header_redirect('index.php');
+	header_redirect('index');
 }
 
 create_view('register');
