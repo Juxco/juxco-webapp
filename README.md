@@ -1,3 +1,5 @@
+#Juxco.com
+
 The Need:
   In a small to medium size restaurants, the day to day operations of the restaurant are done the old fashion way. The clear    need in this project is to bring in technology to computerize the different restaurant operations. This need has not been met yet in for small to medium size restaurants. For large chain restaurants, they have computerize most of these restaurant operations.
   
