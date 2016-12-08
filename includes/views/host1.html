@@ -1,14 +1,44 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-		  <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Party Name</th>
-                <th>Party Size</th>
-                <th>Reservation</th>
-                <th>Add Time</th>
-              </tr>
-            </thead>
-            <tbody>
+          <div id="addCustomerFormWrapper" class="center-block">
+            <h1>Add customer to waitlist</h1>
+		  
+            <form name="addCustomerForm" method="post">
+              <div class="form-group" id="partyNameFormGroup">
+                <label class="sr-only" for="addCustomerPartyName">Party name</label>
+                <input type="text" class="form-control" id="addCustomerPartyName" name="addCustomerPartyName" placeholder="Party name" required maxlength="255" autofocus title="Please enter a valid party name.">
+              </div>
+        
+              <div class="form-group" id="partySizeFormGroup">
+                <label class="sr-only" for="addCustomerPartySize">Party size</label>
+                <input type="number" class="form-control" id="addCustomerPartySize" name="addCustomerPartySize" placeholder="Party size" required maxlength="255" autofocus title="Please enter a valid party size.">
+              </div>
+        
+              <div class="form-group" id="partyReservationFormGroup">
+                <label class="sr-only" for="addCustomerReservation"></label>
+                <select class="form-control" id="addCustomerReservation" name="addCustomerReservation" required>
+                  <option value="">How did the customer reserve their seat?</option>
+                  <option value="call">Called in</option>
+                  <option value="present">Present in store</option>
+                </select>
+              </div>
+        
+              <button id="addPartySubmit" name="addPartySubmit" type="submit" class="btn btn-primary">Add party</button>
+            </form>
+          </div>
+		  
+          <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th colspan="5">Customer Waitlist</th>
+            </tr>
+                  <tr>
+                    <th>ID</th>
+                    <th>Party Name</th>
+                    <th>Party Size</th>
+                    <th>Reservation</th>
+                    <th>Add Time</th>
+                  </tr>
+                </thead>
+                <tbody>

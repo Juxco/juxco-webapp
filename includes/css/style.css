@@ -16,7 +16,8 @@ body {
 }
 
 #loginFormWrapper,
-#registerFormWrapper {
+#registerFormWrapper,
+#addCustomerFormWrapper {
   background: #eee;
   max-width: 720px;
   margin-top: 40px;
@@ -25,7 +26,8 @@ body {
 }
 
 #loginFormWrapper h1,
-#registerFormWrapper h1 {
+#registerFormWrapper h1,
+#addCustomerFormWrapper h1 {
   margin-top: 0px;
 }
 
