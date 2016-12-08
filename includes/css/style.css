@@ -17,7 +17,8 @@ body {
 
 #loginFormWrapper,
 #registerFormWrapper,
-#addCustomerFormWrapper {
+#addCustomerFormWrapper,
+#orderFoodFormWrapper {
   background: #eee;
   max-width: 720px;
   margin-top: 40px;
@@ -27,7 +28,8 @@ body {
 
 #loginFormWrapper h1,
 #registerFormWrapper h1,
-#addCustomerFormWrapper h1 {
+#addCustomerFormWrapper h1,
+#orderFoodFormWrapper h1 {
   margin-top: 0px;
 }
 

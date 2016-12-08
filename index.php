@@ -16,6 +16,9 @@ switch ($roleType) {
 	case 'host':
 		header_redirect('host');
 		break;
+	case 'waiter':
+		header_redirect('waiter');
+		break;
 	case null:
 		echo 'Error loading role from user session';
 		break;

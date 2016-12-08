@@ -11,4 +11,5 @@ define('TABLE_USER_ACCOUNTS', 'users');
 define('DB_RESTAURANT', 'restaurant');
 define('TABLE_STATUS_TABLES', 'table_status');
 define('TABLE_HOST_WAITLIST', 'host_waitlist');
+define('TABLE_FOOD_ORDERS', 'food_orders');
 ?>

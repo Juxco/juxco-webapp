@@ -52,8 +52,17 @@ if (check_form_post('updateTableStatus') === 0) {
 	
 	$tableNum = $_POST['tableNum'];
 	$stmt->execute();
-
 	$stmt->close();
+
+	if ($curBusboyStatus == "available") {
+		$stmt = $conn->prepare('UPDATE ' . TABLE_STATUS_TABLES . ' SET waiter_status=? WHERE id=?');
+		$stmt->bind_param('si',$waiterStatus , $tableNum);
+
+		$waiterStatus = "seated";
+		$tableNum = $_POST['tableNum'];
+		$stmt->execute();
+		$stmt->close();
+	}
 }
 
 create_header();
