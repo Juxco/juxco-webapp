@@ -16,10 +16,11 @@ if ($conn->connect_errno) {
 }
 
 if (check_form_post('orderFoodSubmit') === 0) {
-	$stmt = $conn->prepare('INSERT INTO ' . TABLE_FOOD_ORDERS . '(table_ordered, order_item) VALUES (?, ?)');
-	$stmt->bind_param('is', $tableOrdered, $foodOrderItems);
+	$stmt = $conn->prepare('INSERT INTO ' . TABLE_FOOD_ORDERS . '(table_ordered, order_item, cook_status) VALUES (?, ?, ?)');
+	$stmt->bind_param('iss', $tableOrdered, $foodOrderItems, $orderStatus);
 
 	$tableOrdered = $_POST['tableOrdered'];
+	$orderStatus = "ordered";
 
 	if(!empty($_POST['foodOrderItems'])) {
 		foreach($_POST['foodOrderItems'] as $item) {
@@ -76,6 +77,14 @@ if (check_form_post('updateCustomerStatusSubmit') === 0) {
 
 		$busboyStatus = "dirty";
 		$customerStatusNum = $_POST['customerStatusNum'];
+
+		$stmt->execute();
+
+		$stmt = $conn->prepare('UPDATE ' . TABLE_FOOD_ORDERS . ' SET cook_status=? WHERE table_ordered=?');
+		$stmt->bind_param('si', $newCookStatus , $tableNum);
+
+		$newCookStatus = "none";
+		$tableNum = $_POST['customerStatusNum'];
 
 		$stmt->execute();
 	}

@@ -99,7 +99,6 @@ if ($result->num_rows > 0) {
     echo '<tr><td colspan="5">No results</td></tr>';
 }
 
-
 create_view('host2');
 
 $sql = 'SELECT id, seating_size, busboy_status, waiter_status FROM ' . TABLE_STATUS_TABLES;
