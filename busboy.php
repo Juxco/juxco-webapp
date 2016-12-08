@@ -51,7 +51,7 @@ if ($result->num_rows > 0) {
 			  <form name="updateTableStatusForm" method="post">
 				<input type="hidden" value="' . $row['id'] . '" name="tableNum"></input>
 				<input type="hidden" value="' . $row['busboy_status'] . '" name="curBusboyStatus"></input>
-				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-success btn-block">' . $row['busboy_status']  . '</button>
+				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-success btn-block">' . ucwords($row['busboy_status']) . '</button>
 			  </form>
 			</td>';
 		} else if ($row['busboy_status'] == "occupied") {
@@ -60,7 +60,7 @@ if ($result->num_rows > 0) {
 			  <form name="updateTableStatusForm" method="post">
 				<input type="hidden" value="' . $row['id'] . '" name="tableNum"></input>
 				<input type="hidden" value="' . $row['busboy_status'] . '" name="curBusboyStatus"></input>
-				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-danger btn-block">' . $row['busboy_status']  . '</button>
+				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-danger btn-block">' . ucwords($row['busboy_status']) . '</button>
 			  </form>
 			</td>';
 		} else if ($row['busboy_status'] == "dirty") {
@@ -69,7 +69,7 @@ if ($result->num_rows > 0) {
 			  <form name="updateTableStatusForm" method="post">
 				<input type="hidden" value="' . $row['id'] . '" name="tableNum"></input>
 				<input type="hidden" value="' . $row['busboy_status'] . '" name="curBusboyStatus"></input>
-				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-warning btn-block">' . $row['busboy_status']  . '</button>
+				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-warning btn-block">' . ucwords($row['busboy_status']) . '</button>
 			  </form>
 			</td>';
 		}

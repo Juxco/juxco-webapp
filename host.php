@@ -62,6 +62,14 @@ if (check_form_post('updateTableStatus') === 0) {
 		$tableNum = $_POST['tableNum'];
 		$stmt->execute();
 		$stmt->close();
+	} else if ($curBusboyStatus == "dirty") {
+		$stmt = $conn->prepare('UPDATE ' . TABLE_STATUS_TABLES . ' SET waiter_status=? WHERE id=?');
+		$stmt->bind_param('si',$waiterStatus , $tableNum);
+
+		$waiterStatus = "none";
+		$tableNum = $_POST['tableNum'];
+		$stmt->execute();
+		$stmt->close();
 	}
 }
 
@@ -83,7 +91,7 @@ if ($result->num_rows > 0) {
 		</td>';
 		echo '<td>' . $row['party_name']  . '</td>';
 		echo '<td>' . $row['party_size']  . '</td>';
-		echo '<td>' . $row['reservation']  . '</td>';
+		echo '<td>' . ucwords($row['reservation'])  . '</td>';
 		echo '<td>' . $row['add_time']  . '</td>';
 		echo '</tr>';
     }
@@ -101,7 +109,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 		echo '<tr>';
 		echo '<td>' . $row['id'] . '</td>';
-		echo '<td>' . $row['seating_size']  . '</td>';
+		echo '<td>' . ucwords($row['seating_size'])  . '</td>';
 
 		if ($row['busboy_status'] == "available") {
 			echo '
@@ -109,7 +117,7 @@ if ($result->num_rows > 0) {
 			  <form name="updateTableStatusForm" method="post">
 				<input type="hidden" value="' . $row['id'] . '" name="tableNum"></input>
 				<input type="hidden" value="' . $row['busboy_status'] . '" name="curBusboyStatus"></input>
-				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-success btn-block">' . $row['busboy_status']  . '</button>
+				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-success btn-block">' . ucwords($row['busboy_status']) . '</button>
 			  </form>
 			</td>';
 		} else if ($row['busboy_status'] == "occupied") {
@@ -118,7 +126,7 @@ if ($result->num_rows > 0) {
 			  <form name="updateTableStatusForm" method="post">
 				<input type="hidden" value="' . $row['id'] . '" name="tableNum"></input>
 				<input type="hidden" value="' . $row['busboy_status'] . '" name="curBusboyStatus"></input>
-				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-danger btn-block">' . $row['busboy_status']  . '</button>
+				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-danger btn-block">' . ucwords($row['busboy_status']) . '</button>
 			  </form>
 			</td>';
 		} else if ($row['busboy_status'] == "dirty") {
@@ -127,12 +135,12 @@ if ($result->num_rows > 0) {
 			  <form name="updateTableStatusForm" method="post">
 				<input type="hidden" value="' . $row['id'] . '" name="tableNum"></input>
 				<input type="hidden" value="' . $row['busboy_status'] . '" name="curBusboyStatus"></input>
-				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-warning btn-block">' . $row['busboy_status']  . '</button>
+				<button id="updateTableStatus" name="updateTableStatus" type="submit" class="btn btn-warning btn-block">' . ucwords($row['busboy_status']) . '</button>
 			  </form>
 			</td>';
 		}
 		
-		echo '<td>' . $row['waiter_status']  . '</td>';
+		echo '<td>' . ucwords($row['waiter_status'])  . '</td>';
 		echo '</tr>';
     }
 } else {
