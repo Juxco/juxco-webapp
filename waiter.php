@@ -70,6 +70,16 @@ if (check_form_post('updateCustomerStatusSubmit') === 0) {
 	$customerStatusNum = $_POST['customerStatusNum'];
 	$stmt->execute();
 
+	if ($newCustomerStatus == "none") {
+		$stmt = $conn->prepare('UPDATE ' . TABLE_STATUS_TABLES . ' SET busboy_status=? WHERE id=?');
+		$stmt->bind_param('si',$busboyStatus , $customerStatusNum);
+
+		$busboyStatus = "dirty";
+		$customerStatusNum = $_POST['customerStatusNum'];
+
+		$stmt->execute();
+	}
+
 	$stmt->close();
 }
 
