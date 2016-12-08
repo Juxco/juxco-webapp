@@ -1,0 +1,47 @@
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="orderFoodFormWrapper" class="center-block">
+            <h1>Order food for table</h1>
+		  
+            <form name="foodOrderForm" method="post">
+              <div class="form-group" id="tableOrderedFormGroup">
+                <label class="sr-only" for="tableOrdered">Table number</label>
+                <input type="number" class="form-control" id="tableOrdered" name="tableOrdered" placeholder="Table number" required maxlength="255" autofocus title="Please enter a valid table number.">
+              </div>
+        
+              <div class="checkbox">
+                <label><input type="checkbox" name="foodOrderItems[]" id="foodOrderItems" value="water">Water</label> <input type="number" name="waterQuantity" type="number" /><br />
+              </div>
+
+              <div class="checkbox">
+                <label><input type="checkbox" name="foodOrderItems[]" id="foodOrderItems" value="soda">Soda</label> <input type="number" name="sodaQuantity" type="number" /><br />
+              </div>
+
+              <div class="checkbox">
+                <label><input type="checkbox" name="foodOrderItems[]" id="foodOrderItems" value="hotdog">Hotdog</label> <input type="number" name="hotdogQuantity" type="number" /><br />
+              </div>
+
+              <div class="checkbox">
+                <label><input type="checkbox" name="foodOrderItems[]" id="foodOrderItems" value="hamburger">Hamburger</label> <input type="number" name="hamburgerQuantity" type="number" /><br />
+              </div>
+
+              <div class="checkbox">
+                <label><input type="checkbox" name="foodOrderItems[]" id="foodOrderItems" value="fries">Fries</label> <input type="number" name="friesQuantity" type="number" /><br />
+              </div>
+        
+              <button id="orderFoodSubmit" name="orderFoodSubmit" type="submit" class="btn btn-primary">Order Food</button>
+            </form>
+          </div>
+
+          <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th colspan="2">Customer Order Status</th>
+            </tr>
+                  <tr>
+                    <th>Table Number</th>
+                    <th>Customer Status</th>
+                  </tr>
+                </thead>
+                <tbody>
