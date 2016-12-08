@@ -47,8 +47,16 @@ function header_redirect($pageName, $statusCode = 303) {
 
 // Instantiates a new view onto the screen as specified by the passed argument
 function create_view($viewName) {
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/views/header.html';
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/views/' . $viewName . '.html';
+}
+
+// Instantiates a new header onto the screen
+function create_header() {
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/views/header.html';
+}
+
+// Instantiates a new header onto the screen
+function create_footer() {
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/views/footer.html';
 }
 

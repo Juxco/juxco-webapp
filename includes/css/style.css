@@ -1,5 +1,18 @@
+html { 
+  background: url('https://www.juxco.com/includes/images/restaurant-hd-pic.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+table {
+  background-color: #fff;
+}
+
 body {
   overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
 #loginFormWrapper,

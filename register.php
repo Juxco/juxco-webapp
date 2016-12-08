@@ -27,5 +27,7 @@ if (check_login_state() === 0) {
 	header_redirect('index');
 }
 
+create_header();
 create_view('register');
+create_footer();
 ?>

@@ -9,5 +9,7 @@ if (check_correct_page('busboy') === 1) {
 	header_redirect('index');
 }
 
+create_header();
 create_view('busboy');
+create_footer();
 ?>
